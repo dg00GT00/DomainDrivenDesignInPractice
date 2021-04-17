@@ -3,7 +3,7 @@ namespace Domain.SnackMachine
     /// <summary>
     /// Entity
     /// </summary>
-    public sealed class SnackMachine
+    public sealed class SnackMachine : Entity.Entity
     {
         public Money MoneyInside { get; private set; }
         public Money MoneyInTransaction { get; private set; }

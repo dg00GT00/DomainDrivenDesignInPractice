@@ -1,5 +1,8 @@
 namespace Domain.SnackMachine
 {
+    /// <summary>
+    /// Value Object
+    /// </summary>
     public class Money
     {
         public int OneCentCount { get; }

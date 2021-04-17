@@ -1,5 +1,8 @@
 namespace Domain.SnackMachine
 {
+    /// <summary>
+    /// Entity
+    /// </summary>
     public sealed class SnackMachine
     {
         public Money MoneyInside { get; private set; }

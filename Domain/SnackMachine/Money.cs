@@ -1,9 +1,11 @@
+using Domain.ValueObject;
+
 namespace Domain.SnackMachine
 {
     /// <summary>
     /// Value Object
     /// </summary>
-    public class Money
+    public class Money : ValueObject<Money>
     {
         public int OneCentCount { get; }
         public int TenCentCount { get; }
@@ -39,6 +41,35 @@ namespace Domain.SnackMachine
                 money1.TwentyDollarCount + money2.TwentyDollarCount
             );
             return sum;
+        }
+
+        protected override bool EqualsCore(Money? other)
+        {
+            if (other != null)
+            {
+                return OneCentCount == other.OneCentCount
+                       && TenCentCount == other.TenCentCount
+                       && QuarterCount == other.QuarterCount
+                       && OneDollarCount == other.OneDollarCount
+                       && FiveDollarCount == other.FiveDollarCount
+                       && TwentyDollarCount == other.TwentyDollarCount;
+            }
+
+            return false;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            unchecked
+            {
+                var hashCode = OneCentCount;
+                hashCode = (hashCode * 397) ^ TenCentCount;
+                hashCode = (hashCode * 397) ^ QuarterCount;
+                hashCode = (hashCode * 397) ^ OneDollarCount;
+                hashCode = (hashCode * 397) ^ FiveDollarCount;
+                hashCode = (hashCode * 397) ^ TwentyDollarCount;
+                return hashCode;
+            }
         }
     }
 }

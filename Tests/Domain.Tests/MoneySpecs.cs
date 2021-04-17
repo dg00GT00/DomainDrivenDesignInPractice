@@ -74,5 +74,56 @@ namespace Tests.Domain.Tests
             // Assert
             action.Should().Throw<InvalidOperationException>();
         }
+
+        [Theory]
+        [InlineData(0, 0, 0, 0, 0, 0, 0)]
+        [InlineData(1, 0, 0, 0, 0, 0, 0.01)]
+        public void VerifyAmount_ShouldCalculatedAmountCorrectly(
+            int oneCentCount,
+            int tenCentCount,
+            int quarterCount,
+            int oneDollarCount,
+            int fiveDollarCount,
+            int twentyDollarCount,
+            decimal expectedAmount
+        )
+        {
+            var money = new Money(
+                oneCentCount,
+                tenCentCount,
+                quarterCount,
+                oneDollarCount,
+                fiveDollarCount,
+                twentyDollarCount);
+
+            money.Amount.Should().Be(expectedAmount);
+        }
+
+        [Fact]
+        public void SubtractMoney_ShouldProduceTheCorrectValue()
+        {
+            var money1 = new Money(10, 10, 10, 10, 10, 10);
+            var money2 = new Money(1, 2, 3, 4, 5, 6);
+
+            Money result = money1 - money2;
+
+            result.OneCentCount.Should().Be(9);
+            result.TenCentCount.Should().Be(8);
+            result.QuarterCount.Should().Be(7);
+            result.OneDollarCount.Should().Be(6);
+            result.FiveDollarCount.Should().Be(5);
+            result.TwentyDollarCount.Should().Be(4);
+        }
+
+        [Fact]
+        public void SubtractMoreThanExists_ShouldThrowException()
+        {
+            var money1 = new Money(0, 1, 0, 0, 0, 0);
+            var money2 = new Money(1, 0, 0, 0, 0, 0);
+
+            Func<Money> func = () => money1 - money2;
+
+            func.Should().Throw<InvalidOperationException>();
+        }
     }
 }

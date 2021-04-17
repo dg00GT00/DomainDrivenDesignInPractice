@@ -1,3 +1,4 @@
+using System;
 using Domain.ValueObject;
 
 namespace Domain.SnackMachine
@@ -22,6 +23,36 @@ namespace Domain.SnackMachine
             int fiveDollarCount,
             int twentyDollarCount)
         {
+            if (oneCentCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (tenCentCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (quarterCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (oneDollarCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (fiveDollarCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (twentyDollarCount < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
             OneCentCount = oneCentCount;
             TenCentCount = tenCentCount;
             QuarterCount = quarterCount;

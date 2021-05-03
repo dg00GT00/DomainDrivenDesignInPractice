@@ -1,17 +1,17 @@
 ﻿using System.Diagnostics;
+using Domain.SnackMachine;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Presentation.Models;
 
 namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public SnackMachine SnackMachine { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(SnackMachine snackMachine)
         {
-            _logger = logger;
+            SnackMachine = snackMachine;
         }
 
         public IActionResult Index()
@@ -19,10 +19,6 @@ namespace Presentation.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

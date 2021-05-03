@@ -1,8 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Snack Machine";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-auto d-flex flex-column justify-content-center">
+            <button type="button" class="btn btn-primary">Buy a Snack</button>
+            <p class="m-4">Money Inserted: <strong></strong></p>
+        </div>
+    </div>
+    <div class="row row-cols-3 gy-4">
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put ¢1</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put ¢10</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put ¢25</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put $1</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put $5</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary w-50">Put $20</button>
+        </div>
+    </div>
+    <div style="width: max-content" class="mx-auto">
+        <p class="m-4">Money Inside: </p>
+    </div>
+    <div>
+        <button type="button" class="btn btn-outline-primary mx-auto my-5 d-block">Return Money</button>
+    </div>
 </div>

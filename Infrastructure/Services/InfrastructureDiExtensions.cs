@@ -7,7 +7,7 @@ namespace Infrastructure.Services
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            services.AddScoped<SnackMachine>();
+            services.AddSingleton<SnackMachine>();
             return services;
         }
     }

@@ -1,38 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Snack Machine";
 }
+@model SnackModel
 
 <div class="container">
     <div class="row justify-content-center align-items-center">
-        <div class="col-auto d-flex flex-column justify-content-center">
-            <button type="button" class="btn btn-primary">Buy a Snack</button>
-            <p class="m-4">Money Inserted: <strong></strong></p>
-        </div>
+        <form asp-action="Buy" class="col-auto d-flex flex-column justify-content-center">
+            <button type="submit" class="btn btn-primary">Buy a Snack</button>
+            <p class="m-4">Money Inserted: <strong>@Model.Machine?.MoneyInTransaction?.ToString()</strong></p>
+        </form>
     </div>
     <div class="row row-cols-3 gy-4">
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put ¢1</button>
+            <form asp-action="Insert" asp-route-value="@Money.Cent.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put ¢1</button>
+            </form>
         </div>
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put ¢10</button>
+            <form asp-action="Insert" asp-route-value="@Money.TenCent.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put ¢10</button>
+            </form>
         </div>
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put ¢25</button>
+            <form asp-action="Insert" asp-route-value="@Money.Quarter.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put ¢25</button>
+            </form>
         </div>
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put $1</button>
+            <form asp-action="Insert" asp-route-value="@Money.Dollar.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put $1</button>
+            </form>
         </div>
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put $5</button>
+            <form asp-action="Insert" asp-route-value="@Money.FiveDollar.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put $5</button>
+            </form>
         </div>
         <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-secondary w-50">Put $20</button>
+            <form asp-action="Insert" asp-route-value="@Money.TwentyDollar.Amount" class="w-50">
+                <button type="submit" class="btn btn-secondary w-100">Put $20</button>
+            </form>
         </div>
     </div>
     <div style="width: max-content" class="mx-auto">
-        <p class="m-4">Money Inside: </p>
+        <p class="m-4">Money Inside: @Model.Message</p>
     </div>
     <div>
-        <button type="button" class="btn btn-outline-primary mx-auto my-5 d-block">Return Money</button>
+        <form asp-action="ReturnMoney">
+            <button type="submit" class="btn btn-outline-primary mx-auto my-5 d-block">Return Money</button>
+        </form>
     </div>
 </div>

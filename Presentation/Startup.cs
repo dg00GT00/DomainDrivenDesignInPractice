@@ -21,6 +21,11 @@ namespace Presentation
         {
             services.AddControllersWithViews();
             services.AddInfrastructure();
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-CSRF-TOKEN";
+                options.FormFieldName = "AntiforgeryFieldName";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

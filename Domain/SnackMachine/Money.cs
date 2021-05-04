@@ -134,5 +134,10 @@ namespace Domain.SnackMachine
                 return hashCode;
             }
         }
+
+        public override string ToString()
+        {
+            return Amount < 1 ? $"¢{Amount * 100:0.00}" : $"${Amount}";
+        }
     }
 }

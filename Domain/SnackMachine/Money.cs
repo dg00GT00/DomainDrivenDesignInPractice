@@ -23,6 +23,10 @@ namespace Domain.SnackMachine
         public int FiveDollarCount { get; }
         public int TwentyDollarCount { get; }
 
+        public Money()
+        {
+        }
+
         public Money(
             int oneCentCount,
             int tenCentCount,

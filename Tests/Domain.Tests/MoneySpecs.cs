@@ -125,5 +125,31 @@ namespace Tests.Domain.Tests
 
             func.Should().Throw<InvalidOperationException>();
         }
+
+        [Theory]
+        [InlineData(1, 0, 0, 0, 0, 0, "¢1.00")]
+        [InlineData(0, 0, 0, 1, 0, 0, "$1.00")]
+        [InlineData(1, 0, 0, 1, 0, 0, "$1.01")]
+        [InlineData(0, 0, 2, 1, 0, 0, "$1.50")]
+        public void ToString_ShouldReturnAmountOfMoney(
+            int oneCentCount,
+            int tenCentCount,
+            int quarterCount,
+            int oneDollarCount,
+            int fiveDollarCount,
+            int twentyDollarCount,
+            string expectedAmount
+        )
+        {
+            var money = new Money(
+                oneCentCount,
+                tenCentCount,
+                quarterCount,
+                oneDollarCount,
+                fiveDollarCount,
+                twentyDollarCount);
+
+            Assert.Equal(money.ToString(), expectedAmount);
+        }
     }
 }

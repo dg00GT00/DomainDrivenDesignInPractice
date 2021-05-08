@@ -34,27 +34,27 @@ namespace Presentation.Controllers
                 money = Money.Cent;
             }
 
-            if (value == Money.Quarter.Amount)
+            else if (value == Money.Quarter.Amount)
             {
                 money = Money.Quarter;
             }
 
-            if (value == Money.TenCent.Amount)
+            else if (value == Money.TenCent.Amount)
             {
                 money = Money.TenCent;
             }
 
-            if (value == Money.Dollar.Amount)
+            else if (value == Money.Dollar.Amount)
             {
                 money = Money.Dollar;
             }
 
-            if (value == Money.FiveDollar.Amount)
+            else if (value == Money.FiveDollar.Amount)
             {
                 money = Money.FiveDollar;
             }
 
-            if (value == Money.TwentyDollar.Amount)
+            else if (value == Money.TwentyDollar.Amount)
             {
                 money = Money.TwentyDollar;
             }

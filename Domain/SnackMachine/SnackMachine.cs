@@ -6,10 +6,10 @@ namespace Domain.SnackMachine
     /// <summary>
     /// Entity
     /// </summary>
-    public sealed class SnackMachine : Entity.Entity
+    public class SnackMachine : Entity.Entity
     {
-        public Money? MoneyInside { get; private set; } = Money.None;
-        public Money? MoneyInTransaction { get; private set; } = Money.None;
+        public Money? MoneyInside { get; protected set; } = Money.None;
+        public Money? MoneyInTransaction { get; protected set; } = Money.None;
 
         public void InsertMoney(Money money)
         {

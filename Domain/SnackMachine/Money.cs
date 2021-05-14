@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Domain.ValueObject;
 
 namespace Domain.SnackMachine
@@ -137,7 +138,8 @@ namespace Domain.SnackMachine
 
         public override string ToString()
         {
-            return Amount < 1 ? $"¢{Amount * 100:0.00}" : $"${Amount}";
+            var culture = CultureInfo.InvariantCulture;
+            return Amount < 1 ? $"¢{string.Format(culture, "{0:0.00}", Amount * 100)}" : $"${string.Format(culture, "{0:0.00}", Amount)}";
         }
     }
 }

@@ -21,9 +21,9 @@ namespace Domain.Entity
                 return false;
             }
 
-            return Equals((Entity) obj);
+            return Equals((Entity)obj);
         }
-
+        
         public static bool operator ==(Entity? a, Entity? b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
